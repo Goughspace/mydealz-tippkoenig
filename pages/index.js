@@ -5,4 +5,4 @@ export default function Home() {
       <p>This is your new Next.js prediction app!</p>
     </div>
   );
-}// Main app code placeholder
+}
