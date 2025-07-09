@@ -1,6 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function TippkoenigPrototype() {
+  const [accessGranted, setAccessGranted] = useState(false);
+  const [inputCode, setInputCode] = useState("");
+  const ACCESS_CODE = "mydealz2025";
+
+  const handleCodeSubmit = () => {
+    if (inputCode.trim().toLowerCase() === ACCESS_CODE) {
+      setAccessGranted(true);
+    } else {
+      alert("Invalid access code. Please try again.");
+    }
+  };
+
+  if (!accessGranted) {
+    return (
+      <div style={{ minHeight: '100vh', backgroundColor: '#111827', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+        <h1 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#22c55e' }}>MyDealz Tippkönig 🏆</h1>
+        <p style={{ marginTop: '1rem', marginBottom: '1rem', color: '#d1d5db' }}>Enter your invite code to access predictions</p>
+        <input
+          type="text"
+          placeholder="Enter access code"
+          value={inputCode}
+          onChange={(e) => setInputCode(e.target.value)}
+          style={{ padding: '0.5rem', borderRadius: '0.25rem', backgroundColor: '#1f2937', border: '1px solid #374151', color: 'white', marginBottom: '1rem' }}
+        />
+        <button onClick={handleCodeSubmit} style={{ backgroundColor: '#16a34a', padding: '0.5rem 1.5rem', borderRadius: '9999px', color: 'white', border: 'none' }}>Enter</button>
+      </div>
+    );
+  }
+
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#111827', color: 'white', padding: '1.5rem' }}>
       <header style={{ textAlign: 'center', marginBottom: '2rem' }}>
